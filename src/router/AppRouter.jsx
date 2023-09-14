@@ -2,6 +2,8 @@ import { Navigate, RouterProvider, createHashRouter } from 'react-router-dom';
 import { LoginPage } from '../auth/index.js';
 import { CalendarRoutes } from '../calendar/index.js';
 import { CalendarRouter } from '../calendar/index.js';
+import {useAuthStore} from "../hooks/index.js";
+import {useEffect} from "react";
 
 /* export const router = createHashRouter([
   {
@@ -17,7 +19,19 @@ import { CalendarRouter } from '../calendar/index.js';
 ]); */
 
 export const AppRouter = () => {
-  let status = 'authenticated';
+  const {status, checkAuthToken } = useAuthStore();
+  // const status = 'not-authenticated';
+
+  useEffect(() => {
+    checkAuthToken();
+    console.log('status', status)
+  }, []);
+
+  if (status === 'checking') {
+    return (
+        <h3>Checking...</h3>
+    )
+  }
 
   let routesConfig = createHashRouter([
     {
