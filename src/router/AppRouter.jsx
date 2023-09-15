@@ -24,7 +24,6 @@ export const AppRouter = () => {
 
   useEffect(() => {
     checkAuthToken();
-    console.log('status', status)
   }, []);
 
   if (status === 'checking') {
