@@ -50,8 +50,7 @@ export const useCalendarStore = () => {
 
         try {
             const {data} = await calendarApi.get('/events');
-            const events = convertEventsToDateEvents(data.events);
-            console.log({events})
+            data.events = convertEventsToDateEvents(data.events);
             dispatch(onLoadEvents(data.events));
         } catch (error) {
             console.error(error);
