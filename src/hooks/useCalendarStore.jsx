@@ -32,8 +32,6 @@ export const useCalendarStore = () => {
             console.error(error);
             Swal.fire('Error', error.response.data.msg, 'error');
         }
-
-
     }
 
     const startDeletingEvent = async () => {

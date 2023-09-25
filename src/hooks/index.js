@@ -1,4 +1,4 @@
-export * from './useAuthStore.Js';
-export * from './useUiStore';
-export * from './useCalendarStore';
+export * from './useAuthStore.jsx';
+export * from './useUiStore.jsx';
+export * from './useCalendarStore.jsx';
 export * from './useForm';
